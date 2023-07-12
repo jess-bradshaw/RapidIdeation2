@@ -2,6 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
+// simlar code created by Gio as part of github tutorial
+
 public class Clicking : MonoBehaviour
 {
     Renderer cubeRenderer; 
