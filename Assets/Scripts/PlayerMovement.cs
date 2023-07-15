@@ -14,6 +14,7 @@ public class PlayerMovement : MonoBehaviour
 	private Quaternion currentRotation; 
 	private bool isWalking = false; 
 
+
 	//-----Functions
 	void Awake()
 	{
