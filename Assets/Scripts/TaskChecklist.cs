@@ -9,6 +9,8 @@ public class TaskChecklist : MonoBehaviour
     public GameObject Flowers; 
     public GameObject Friends; 
     public GameObject Home; 
+    public GameObject LevelCompete; 
+    public GameObject Instructions; 
 
     // Update is called once per frame
     void Update()
@@ -31,6 +33,15 @@ public class TaskChecklist : MonoBehaviour
         if (PuzzleConditions.Roses == true)
         {
             Flowers.gameObject.SetActive(true); 
+        }
+         if (PuzzleConditions.completedLevel == true)
+        {
+           LevelCompete.gameObject.SetActive(true);
+           Family.gameObject.SetActive(false);
+           Flowers.gameObject.SetActive(false); 
+           Friends.gameObject.SetActive(false); 
+           Home.gameObject.SetActive(false); 
+           Instructions.gameObject.SetActive(false); 
         }
     }
 }

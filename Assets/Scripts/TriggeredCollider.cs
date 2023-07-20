@@ -9,9 +9,22 @@ public class TriggeredCollider : MonoBehaviour
     public Material OGmaterial;
     private bool friendNear = false; 
     public Animator animator; 
-    public bool restored = false; 
     //public PuzzleConditions puzzleConditions;  
     
+    void Update() 
+    {
+        if (PuzzleConditions.completedLevel == true)
+        {
+            if (this.gameObject.tag == "Animal") //check to see if it's an amimal
+            { 
+                 GetComponent<SkinnedMeshRenderer>().material = colourful;    
+            }
+            else 
+            {
+                 GetComponent<MeshRenderer>().material = colourful;
+            }
+        }
+    }
     private void OnTriggerEnter(Collider other)
     {
        if (this.gameObject.tag == "Animal") //check to see if it's an amimal
@@ -32,10 +45,12 @@ public class TriggeredCollider : MonoBehaviour
        if (this.gameObject.tag == "Animal") //check to see if it's an animal
        { 
             if (PuzzleConditions.FamilyTime == true)
-            { //doesn't repalce material/stop animation
+            {
             }
             else if (PuzzleConditions.FriendTime == true)
-            {}
+            { 
+                animator.SetBool("complete", true);
+            }
             else 
             {
                 GetComponent<SkinnedMeshRenderer>().material = OGmaterial;
@@ -50,7 +65,6 @@ public class TriggeredCollider : MonoBehaviour
         { 
            GetComponent<MeshRenderer>().material = colourful;
            Debug.Log("Flowers"); 
-           restored = true; 
         }
         else 
         {

@@ -16,7 +16,10 @@ public class PlayerMovement : MonoBehaviour
 	private Quaternion currentRotation; 
 	private bool isWalking = false; 
 	private bool isSitting = false; 
-	private bool isJumping = false; 
+	private bool isJumping = false;
+	private bool isSpinning = false;
+	private bool isPecking = false; 
+	
 
 
 	//-----Functions
@@ -111,6 +114,38 @@ public class PlayerMovement : MonoBehaviour
 			isJumping = false; 
 			animator.SetBool("isJumping", isJumping); 
 			Debug.Log("We no longer jump");
+		}
+
+	}
+	public void AnimateSpin(InputAction.CallbackContext context)
+	{
+		if (context.performed)
+		{
+			isSpinning = true;
+			animator.SetBool("isSpinning", isSpinning); 
+			//Debug.Log("We sit");
+		}
+		else if (context.canceled)
+		{
+			isSpinning = false; 
+			animator.SetBool("isSpinning", isSpinning); 
+			Debug.Log("We no longer spin");
+		}
+
+	}
+	public void AnimatePeck(InputAction.CallbackContext context)
+	{
+		if (context.performed)
+		{
+			isPecking = true;
+			animator.SetBool("isPecking", isPecking); 
+			//Debug.Log("We sit");
+		}
+		else if (context.canceled)
+		{
+			isPecking = false; 
+			animator.SetBool("isPecking", isPecking); 
+			Debug.Log("We no longer peck");
 		}
 
 	}

@@ -12,9 +12,21 @@ public class PuzzleConditions : MonoBehaviour
 	static public bool Hometime; 
 	static public bool FamilyTime; 
 	static public bool FriendTime; 
+	static public bool completedLevel = false; 
+	public GameObject hPart; 
+	public GameObject famPart; 
+	public GameObject friPart; 
+	public GameObject floPart; 
+
+
 	void Awake()
 	{
 		animator = GetComponent<Animator>(); 
+	}
+	void Update()
+	{
+		if (Roses == true && Hometime == true && FamilyTime == true && FriendTime == true)
+		completedLevel = true; 
 	}
 
      private void OnTriggerStay(Collider other)
@@ -28,17 +40,19 @@ public class PuzzleConditions : MonoBehaviour
 				Roses = true; 
 				Debug.Log(Roses); 
 				other.gameObject.SetActive(false); 
+				floPart.gameObject.SetActive(true); 
 		   }
            
        }
 	   //HANGOUT AT HOME
 	if (other.gameObject.tag == "Home")
-	   {if (this.animator.GetCurrentAnimatorStateInfo(0).IsName("Sit"))
+	   {if (this.animator.GetCurrentAnimatorStateInfo(0).IsName("Eat"))
 		   { 
 				Debug.Log("We really did it"); 
 				Hometime = true; 
 				Debug.Log(Hometime); 
 				other.gameObject.SetActive(false); 
+				hPart.gameObject.SetActive(true); 
 		   }
            
        }
@@ -50,7 +64,8 @@ public class PuzzleConditions : MonoBehaviour
 				Debug.Log("We really did it"); 
 				FamilyTime = true; 
 				Debug.Log(FamilyTime); 
-				other.gameObject.SetActive(false); 
+				other.gameObject.SetActive(false);
+				famPart.gameObject.SetActive(true);
 		   }
            
        }
@@ -63,6 +78,7 @@ public class PuzzleConditions : MonoBehaviour
 				FriendTime = true; 
 				Debug.Log(FriendTime); 
 				other.gameObject.SetActive(false); 
+				friPart.gameObject.SetActive(true); 
 		   }
            
        }
