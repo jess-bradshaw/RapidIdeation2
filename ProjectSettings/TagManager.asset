@@ -5,6 +5,11 @@ TagManager:
   serializedVersion: 2
   tags:
   - Animal
+  - Home
+  - Roses
+  - Flower
+  - Family
+  - Friend
   layers:
   - Default
   - TransparentFX

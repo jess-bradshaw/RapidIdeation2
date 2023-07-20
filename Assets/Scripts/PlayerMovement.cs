@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem; 
+using UnityEngine.InputSystem.Interactions; 
 
 public class PlayerMovement : MonoBehaviour
 { 
@@ -13,6 +15,8 @@ public class PlayerMovement : MonoBehaviour
 	private Vector3 moveVector; 
 	private Quaternion currentRotation; 
 	private bool isWalking = false; 
+	private bool isSitting = false; 
+	private bool isJumping = false; 
 
 
 	//-----Functions
@@ -25,6 +29,8 @@ public class PlayerMovement : MonoBehaviour
 
 	void FixedUpdate()
 	{
+		if (isSitting == false || isJumping ==false)
+		{
 		float h = movementInput.x; 
 		float v = movementInput.y; 
 		Vector3 targetInput = new Vector3(h, 0, v); //jump missing aka 0. 
@@ -41,6 +47,7 @@ public class PlayerMovement : MonoBehaviour
 		Move (desiredDirection); 
 		Turn (desiredDirection);
 		AnimateWalk (desiredDirection); 
+		}
 	}
 
 	void Move(Vector3 desiredDirection)
@@ -74,5 +81,37 @@ public class PlayerMovement : MonoBehaviour
 	private void OnDisable()
 	{
 		inputActions.Disable();
+	}
+	public void AnimateSit(InputAction.CallbackContext context)
+	{
+		if (context.performed)
+		{
+			isSitting = true;
+			animator.SetBool("isSitting", isSitting); 
+			//Debug.Log("We sit");
+		}
+		else if (context.canceled)
+		{
+			isSitting = false; 
+			animator.SetBool("isSitting", isSitting); 
+			//Debug.Log("We no longer sit");
+		}
+
+	}
+	public void AnimateJump(InputAction.CallbackContext context)
+	{
+		if (context.performed)
+		{
+			isJumping = true;
+			animator.SetBool("isJumping", isJumping); 
+			//Debug.Log("We sit");
+		}
+		else if (context.canceled)
+		{
+			isJumping = false; 
+			animator.SetBool("isJumping", isJumping); 
+			Debug.Log("We no longer jump");
+		}
+
 	}
 }
