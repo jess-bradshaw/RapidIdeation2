@@ -45,8 +45,9 @@ public class TriggeredCollider : MonoBehaviour
             
             
        }
-       else if(this.gameObject.tag == "Flower" && PuzzleConditions.Roses == true) //check to see if it's a flower
-       { 
+       //check to see if it's a flower or home
+       else if((this.gameObject.tag == "Flower" && PuzzleConditions.Roses == true) || (this.gameObject.tag == "Birdhouse" && PuzzleConditions.Hometime == true)) 
+        { 
            GetComponent<MeshRenderer>().material = colourful;
            Debug.Log("Flowers"); 
            restored = true; 

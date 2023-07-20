@@ -24,7 +24,7 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "Interact",
+                    "name": "Peck",
                     "type": "Button",
                     "id": "8da63d7a-1014-471a-8632-bf746cc35fac",
                     "expectedControlType": "Button",
@@ -36,6 +36,15 @@
                     "name": "Sit",
                     "type": "Button",
                     "id": "40e56417-0d8a-46a6-b5b6-1d5699c8a1a8",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Spin",
+                    "type": "Button",
+                    "id": "eac6d0d1-307a-466c-989b-61101e62590c",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
@@ -189,11 +198,11 @@
                 {
                     "name": "",
                     "id": "f8a181be-3330-4750-8886-9f71c922c7fe",
-                    "path": "",
+                    "path": "<Keyboard>/e",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Interact",
+                    "action": "Peck",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -205,6 +214,17 @@
                     "processors": "",
                     "groups": "Keyboard&Mouse",
                     "action": "Sit",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "1f81fd12-c4ef-4c98-9002-c6123bf831e9",
+                    "path": "<Keyboard>/q",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Spin",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
@@ -721,34 +741,6 @@
                     "processors": "",
                     "groups": "XR",
                     "action": "TrackedDeviceOrientation",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                }
-            ]
-        },
-        {
-            "name": "New action map",
-            "id": "cc02addb-c064-4570-96a8-41a71aabe009",
-            "actions": [
-                {
-                    "name": "New action",
-                    "type": "Button",
-                    "id": "d01728b0-6b15-40d2-bf90-f6a73b54ef78",
-                    "expectedControlType": "Button",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
-                }
-            ],
-            "bindings": [
-                {
-                    "name": "",
-                    "id": "c2d00739-22d0-46a2-966b-f5f173da0885",
-                    "path": "",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "New action",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
